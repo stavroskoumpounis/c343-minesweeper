@@ -1,7 +1,3 @@
-//
-// Created by stv14 on 10/03/2023.
-//
-
 #ifndef MINESWEEPER_CELL_H
 #define MINESWEEPER_CELL_H
 

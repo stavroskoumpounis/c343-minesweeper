@@ -17,7 +17,7 @@ private:
     const int ROWS;
     const int COLS;
     int openedCells;
-    const int MINES_NUM = 10;
+//    const int MINES_NUM = 10;
     Cell **grid;
 
     std::pair<int,int> firstCell;
@@ -34,7 +34,6 @@ public:
     Cell &getCell(int row, int col) const;
 
     void showBoard();
-    void showBoard0();
 
     void resetBoard();
 

@@ -1,7 +1,5 @@
 #include "Board.h"
 #include "GameEngine.h"
-#include "GUI.cpp"
-#include <iostream>
 
 
 using namespace std;

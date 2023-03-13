@@ -3,4 +3,4 @@ project(Minesweeper)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Minesweeper main.cpp Cell.cpp Player.cpp Board.cpp GameEngine.cpp GUI.cpp GameEngine.h random_util.h random_util.cpp Board.h Cell.h)
+add_executable(Minesweeper main.cpp Cell.cpp misc/Player.cpp Board.cpp GameEngine.cpp misc/GUI.cpp GameEngine.h random_util.h random_util.cpp Board.h Cell.h)

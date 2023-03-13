@@ -3,19 +3,18 @@
 #include <utility>
 #include <algorithm>
 #include <iostream>
-#include "random_util.h"
 #include <string>
 #include "windows.h"
 
 Board::Board(int rowsNum, int colsNum) : ROWS(rowsNum), COLS(colsNum) {
 
-    // allocate memory for the grid
+    //memory allocation for the grid
     grid = new Cell *[ROWS];
     for (int i = 0; i < ROWS; i++) {
         grid[i] = new Cell[COLS];
     }
 
-    // initialize the grid with empty cells
+    //initializing with empty cells
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             grid[i][j] = Cell();
@@ -23,8 +22,6 @@ Board::Board(int rowsNum, int colsNum) : ROWS(rowsNum), COLS(colsNum) {
     }
 
     openedCells = 0;
-
-    random_util::init();
 }
 
 Board::~Board() {
@@ -32,10 +29,6 @@ Board::~Board() {
         delete[] grid[i];
     }
     delete[] grid;
-}
-
-void Board::setCell(int row, int col, const Cell &cell) {
-    grid[row][col] = cell;
 }
 
 Cell &Board::getCell(int row, int col) const {
@@ -76,9 +69,6 @@ void Board::showBoard() {
 
     std::cout << "\n\n" << std::endl;
 }
-
-//int Board::get
-
 
 void Board::hiddenBoard() {
     int x = firstCell.first;
@@ -163,6 +153,10 @@ void Board::incrementOpenedCells() {
     Board::openedCells++;
 }
 
+int Board::getOpenedCells() const {
+    return openedCells;
+}
+
 void Board::resetBoard() {
     // initialize the grid with empty cells
     for (int i = 0; i < ROWS; i++) {
@@ -180,8 +174,6 @@ void Board::setFirstCell(const std::pair<int, int> &firstCell) {
     Board::firstCell = firstCell;
 }
 
-int Board::getOpenedCells() const {
-    return openedCells;
-}
+
 
 

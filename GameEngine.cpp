@@ -112,26 +112,16 @@ std::vector<std::pair<int, int>> GameEngine::generateRandomMines(std::pair<int, 
             }
         }
     }
-
     //shuffle coords 1 to 3 times
     int rep = random_util::randInt(1, 3);
     for (int i = 0; i < rep; ++i) {
         std::shuffle(possibleCoords.begin(), possibleCoords.end(), random_util::gen);
     }
-
-    //TODO: test if possibleCoords are enough
-
     //take first X coords for Mines
     for (int i = 0; i < MINES_NUM; ++i) {
         mines.push_back(possibleCoords.at(i));
     }
-
     return mines;
-}
-
-void explode() {
-    std::cout << "BOOM!" << std::endl;
-    //show board, highlight mines
 }
 
 void GameEngine::checkCell(std::pair<int, int> clickCoords) {
@@ -212,6 +202,7 @@ void GameEngine::openCellBoard(int row, int col) {
     for (int i = row - 1; i <= row + 1; i++) {
         for (int j = col - 1; j <= col + 1; j++) {
             if (!board.isValidCell(i, j) || (i == row && j == col) || board.getCell(i, j).isVisited()) continue;
+            board.hiddenBoard();
             openCellBoard(i, j);
         }
     }
